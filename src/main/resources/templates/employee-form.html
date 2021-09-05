@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>Employee Form</title>
+		
+		<!-- Required meta tags -->
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	    <!-- Bootstrap CSS -->
+	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" 
+	    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	</head>
+	<body>
+	
+		<div class="container">
+			 
+			<br>
+			<h3 class="h3">EMPLOYEE FORM</h3>
+			<br>
+			
+			<hr>
+			<p class="h3">Save Employee</p>
+			<br>
+			
+			<form action="#" th:action="@{/employees/save}" th:object="${employee}" method="post">
+			
+				<!-- Add hidden form id field to handle update (when we made updates SPRING set all update data using setters)  -->
+				<input type="hidden" th:field="*{id}"/>
+				
+				<div class="mb-3 row">
+				    <label for="f-name" class="col-sm-2 col-form-label">First Name</label>
+				    <div class="col-sm-10">
+				      <input type="text" th:field="*{firstName}" class="form-control" id="f-name" placeholder="John"/>
+				    </div>
+		  		</div>
+		  		
+		  		<div class="mb-3 row">
+				    <label for="l-name" class="col-sm-2 col-form-label">Last Name</label>
+				    <div class="col-sm-10">
+				      <input type="text" th:field="*{lastName}" class="form-control" id="l-name" placeholder="Dou"/>
+				    </div>
+		  		</div>
+		  		
+		  		<div class="mb-3 row">
+				    <label for="email" class="col-sm-2 col-form-label">Email</label>
+				    <div class="col-sm-10">
+				      <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="jd@gmail.com"/>
+				    </div>
+		  		</div>
+		  		
+		  		<div class="mb-3 row">
+		  			<input class="btn btn-outline-secondary" type="submit" value="Submit">
+		  		</div> 
+		  		
+		  		<br>
+		  		<hr>
+		  		
+		  		<!-- Add back to Employee list button -->
+		  		<a th:href="@{/employees/list}">Back to Employee List</a>
+		  		
+			</form> 
+			
+		</div>
+	
+	</body>
+</html>
